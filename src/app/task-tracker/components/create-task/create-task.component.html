@@ -16,7 +16,7 @@
     <div>
       <mat-form-field class="create-task__input create-task__deadline">
         <mat-label>Выберите Дэдлайн</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="deadline" />
+        <input matInput [matDatepicker]="picker" [min]="minDate" formControlName="deadline" />
         <mat-hint>ДД/ММ/ГГГГ</mat-hint>
         <mat-datepicker-toggle
           matIconSuffix

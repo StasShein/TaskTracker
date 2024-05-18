@@ -52,8 +52,7 @@ export class TaskInfoComponent {
   public diff!: number;
 
   ngOnInit(): void {
-    this.id = +this.route.snapshot.params["id"];
-    console.log(this.route.snapshot.params)
+    this.id = +this.route.snapshot.params['id'];
     this.taskData = this.taskService.getTask(this.id);
     this.formGroup = this.fb.group({
       id: this.taskData[0].id,

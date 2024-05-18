@@ -76,6 +76,8 @@ export class DialogCreateTaskComponent {
   public formGroup!: FormGroup;
   public priority = PRIORITY;
   public status = STASUS;
+  public minDate!: Date;
+
 
   constructor(
     private fb: FormBuilder,
@@ -93,6 +95,7 @@ export class DialogCreateTaskComponent {
       status: ['', [Validators.required]],
       worker: ['', [Validators.required]],
     });
+    this.minDate = new Date();
   }
 
   private openSnackBar() {
