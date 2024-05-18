@@ -1,0 +1,118 @@
+<div class="task-info">
+  <form class="task-info__form" [formGroup]="formGroup">
+    <h2>
+      <b>{{ taskData[0].title }}</b>
+    </h2>
+    <div class="name">
+      <h4><b>Описание:</b></h4>
+      <p>{{ taskData[0].name }}</p>
+    </div>
+
+    <div class="deadline">
+      <p><b>Дэдлайн:</b> {{ taskData[0].deadline | date : "dd.MM.yyyy" }}</p>
+      <p>
+        <b>Осталось:</b> {{ diff > 0 ? diff + " дн." : "Время закончилось" }}
+      </p>
+    </div>
+
+    <div class="priority-status">
+      <div>
+        <mat-form-field>
+          <mat-label>Приоритет</mat-label>
+          <mat-select [value]="taskData[0].priority" formControlName="priority">
+            <mat-option [value]="priority.LOW"
+              >{{ priority.LOW }}
+              <mat-icon
+                class="low-icon"
+                aria-hidden="false"
+                fontIcon="trending_down"
+              ></mat-icon
+            ></mat-option>
+            <mat-option [value]="priority.MEDIUM"
+              >{{ priority.MEDIUM }}
+              <mat-icon
+                class="medium-icon"
+                aria-hidden="false"
+                fontIcon="trending_flat"
+              ></mat-icon
+            ></mat-option>
+            <mat-option [value]="priority.HIGH"
+              >{{ priority.HIGH }}
+              <mat-icon
+                class="high-icon"
+                aria-hidden="false"
+                fontIcon="trending_up"
+              ></mat-icon
+            ></mat-option>
+            <mat-option [value]="priority.BLOCK"
+              >{{ priority.BLOCK }}
+              <mat-icon
+                class="block-icon"
+                aria-hidden="false"
+                fontIcon="highlight_off"
+              ></mat-icon
+            ></mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Статус</mat-label>
+          <mat-select [value]="taskData[0].status" formControlName="status">
+            <mat-option [value]="status.ANALYZE"
+              >{{ status.ANALYZE }}
+              <mat-icon
+                class="status-block"
+                aria-hidden="false"
+                fontIcon="add"
+              ></mat-icon
+            ></mat-option>
+            <mat-option [value]="status.START"
+              >{{ status.START }}
+              <mat-icon
+                class="status-block"
+                aria-hidden="false"
+                fontIcon="play_arrow"
+              ></mat-icon
+            ></mat-option>
+            <mat-option [value]="status.PAUSE"
+              >{{ status.PAUSE }}
+              <mat-icon
+                class="status-block"
+                aria-hidden="false"
+                fontIcon="pause"
+              ></mat-icon
+            ></mat-option>
+            <mat-option [value]="status.DONE"
+              >{{ status.DONE }}
+              <mat-icon
+                class="status-block"
+                aria-hidden="false"
+                fontIcon="done_all"
+              ></mat-icon
+            ></mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="worker">
+      <mat-form-field class="worker--input">
+        <mat-label>Исполнитель</mat-label>
+        <input matInput formControlName="worker" />
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="task-info__action">
+    <button
+      mat-raised-button
+      [routerLink]="['/tasks/list']"
+      routerLinkActive="router-link-active"
+    >
+      Назад
+    </button>
+    <button mat-flat-button color="primary" (click)="saveTaskChanges()">
+      Сохранить
+    </button>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 4px;
+
+  &__user-avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin: 0px auto 20px auto;
+    background-image: url("/assets/batman-avatar.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__button {
+    padding-left: 20px;
+    width: 200px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    overflow: hidden;
+
+    &:hover {
+      transform: scale(1.1);
+      background: #2626260f;
+    }
+  }
+
+  & .active {
+    background: #2626260f;
+  }
+}

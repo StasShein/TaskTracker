@@ -1,0 +1,21 @@
+<ng-container>
+  <div class="sidebar">
+    <div class="sidebar__user-avatar"></div>
+    <div
+      class="sidebar__button"
+      [ngClass]="{ active: !chooseActiveButton }"
+      [routerLink]="['/tasks/list']"
+    >
+      <mat-icon>subject</mat-icon>
+      Список задач
+    </div>
+    <div
+      class="sidebar__button"
+      [ngClass]="{ active: chooseActiveButton }"
+      [routerLink]="['/tasks/add']"
+    >
+      <mat-icon>add_circle_outline</mat-icon>
+      Добавить задачу
+    </div>
+  </div>
+</ng-container>

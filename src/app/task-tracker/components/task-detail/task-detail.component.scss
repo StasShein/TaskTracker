@@ -1,0 +1,55 @@
+.task-detail {
+  padding: 20px;
+  &__button {
+    background-color: inherit;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &__form {
+    .href-to-task {
+      display: flex;
+      background-color: rgb(235, 235, 235);
+      align-items: center;
+      font-size: 14px;
+      padding: 0 10px;
+      width: fit-content;
+      border: 1px solid rgb(133, 133, 133);
+      border-radius: 6px;
+    }
+
+    .deadline {
+      padding: 10px 60px;
+      display: flex;
+      gap: 50px;
+    }
+
+    .priority-status {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .worker {
+      width: 100%;
+    }
+  }
+}
+
+.low-icon {
+  color: red;
+}
+
+.medium-icon {
+  color: blue;
+}
+
+.high-icon {
+  color: green;
+}
+
+.block-icon {
+  color: red;
+}

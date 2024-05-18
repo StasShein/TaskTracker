@@ -1,0 +1,66 @@
+<mat-drawer-container class="task-table" autosize>
+  <h1><b>Список всех задач</b></h1>
+  <div class="task-table__table">
+    <mat-form-field class="search">
+      <mat-label>Поиск</mat-label>
+      <input matInput (keyup)="applyFilter($event)" #input />
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+      <table mat-table matSort [dataSource]="dataSource">
+        <tbody>
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef>Заголовок</th>
+            <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+          </ng-container>
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Название</th>
+            <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+          </ng-container>
+          <ng-container matColumnDef="deadline">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Дэдлайн</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.deadline | date : "dd.MM.yyyy" }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="priority">
+            <th mat-header-cell *matHeaderCellDef>Приоритет</th>
+            <td mat-cell *matCellDef="let element">{{ element.priority }}</td>
+          </ng-container>
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Статус</th>
+            <td class="table-status" mat-cell *matCellDef="let element">
+              {{ element.status }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="worker">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Исполнитель
+            </th>
+            <td class="table-worker" mat-cell *matCellDef="let element">
+              {{ element.worker }}
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns"
+            (click)="openTaskDetail(row.id)"
+          ></tr>
+
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">Нет задач</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <mat-drawer #sidenav class="task-table__sidenav" mode="side" position="end">
+    @if(sidenav.opened){
+    <app-task-detail
+      [id]="taskID"
+      (onClose)="this.closeTaskDetail()"
+    ></app-task-detail>
+    }
+  </mat-drawer>
+</mat-drawer-container>

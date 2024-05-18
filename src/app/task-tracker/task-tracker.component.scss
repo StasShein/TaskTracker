@@ -1,0 +1,25 @@
+.task-tracker {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    139deg,
+    rgba(255, 255, 255, 0) 43%,
+    rgba(255, 209, 0, 0.34217436974789917) 100%
+  );
+  &__main {
+    display: flex;
+    flex: 1;
+    .sidebar {
+      float: left;
+    }
+    .view {
+      padding: 40px;
+      width: 100%;
+      margin: 0 40px 40px 0;
+      background: #2626260f;
+      border-radius: 40px;
+    }
+  }
+}

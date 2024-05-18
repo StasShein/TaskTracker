@@ -1,0 +1,37 @@
+:host::ng-deep {
+  tbody {
+    tr {
+      &:hover {
+        cursor: pointer;
+        outline: 1px solid black;
+      }
+    }
+    td {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+    }
+  }
+}
+
+.task-table {
+  background-color: transparent;
+  height: 100%;
+  &__table {
+    height: max-content;
+
+    .search {
+      width: 100%;
+    }
+  }
+
+  &__sidenav {
+    width: 500px;
+    height: 100vh;
+  }
+}
+
+
+
+

@@ -1,0 +1,45 @@
+.create-task {
+  background-color: white;
+  padding: 40px;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 500px;
+
+  &__input {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  &__name {
+    height: 150px;
+
+    textarea {
+      resize: none;
+    }
+  }
+
+  &__action {
+    display: flex;
+    gap: 30px;
+
+    .action {
+      padding: 25px 40px;
+    }
+  }
+}
+
+.low-icon {
+  color: red;
+}
+
+.medium-icon {
+  color: blue;
+}
+
+.high-icon {
+  color: green;
+}
+
+.block-icon {
+  color: red;
+}

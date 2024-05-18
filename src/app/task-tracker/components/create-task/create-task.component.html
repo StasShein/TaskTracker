@@ -1,0 +1,126 @@
+<h2><b>Создать задачу</b></h2>
+<div class="create-task">
+  <form [formGroup]="formGroup">
+    <div>
+      <mat-form-field class="create-task__input create-task__title">
+        <mat-label>Заголовок</mat-label>
+        <input matInput formControlName="title" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="create-task__input create-task__name">
+        <mat-label>Название</mat-label>
+        <textarea matInput formControlName="name"></textarea>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="create-task__input create-task__deadline">
+        <mat-label>Выберите Дэдлайн</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="deadline" />
+        <mat-hint>ДД/ММ/ГГГГ</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="create-task__input create-task__priority">
+        <mat-label>Приоритет</mat-label>
+        <mat-select formControlName="priority">
+          <mat-option [value]="priority.LOW"
+            >{{ priority.LOW
+            }}<mat-icon
+              class="low-icon"
+              aria-hidden="false"
+              fontIcon="trending_down"
+            ></mat-icon
+          ></mat-option>
+          <mat-option [value]="priority.MEDIUM"
+            >{{ priority.MEDIUM
+            }}<mat-icon
+              class="medium-icon"
+              aria-hidden="false"
+              fontIcon="trending_flat"
+            ></mat-icon
+          ></mat-option>
+          <mat-option [value]="priority.HIGH"
+            >{{ priority.HIGH }}
+            <mat-icon
+              class="high-icon"
+              aria-hidden="false"
+              fontIcon="trending_up"
+            ></mat-icon
+          ></mat-option>
+          <mat-option [value]="priority.BLOCK"
+            >{{ priority.BLOCK }}
+            <mat-icon
+              class="block-icon"
+              aria-hidden="false"
+              fontIcon="highlight_off"
+            ></mat-icon
+          ></mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="create-task__input create-task__status">
+        <mat-label>Статус</mat-label>
+        <mat-select formControlName="status">
+          <mat-option [value]="status.ANALYZE"
+            >{{ status.ANALYZE }}
+            <mat-icon
+              class="status-block"
+              aria-hidden="false"
+              fontIcon="add"
+            ></mat-icon
+          ></mat-option>
+          <mat-option [value]="status.START"
+            >{{ status.START }}
+            <mat-icon
+              class="status-block"
+              aria-hidden="false"
+              fontIcon="play_arrow"
+            ></mat-icon
+          ></mat-option>
+          <mat-option [value]="status.PAUSE"
+            >{{ status.PAUSE }}
+            <mat-icon
+              class="status-block"
+              aria-hidden="false"
+              fontIcon="pause"
+            ></mat-icon
+          ></mat-option>
+          <mat-option [value]="status.DONE"
+            >{{ status.DONE }}
+            <mat-icon
+              class="status-block"
+              aria-hidden="false"
+              fontIcon="done_all"
+            ></mat-icon
+          ></mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="create-task__input create-task__worker">
+        <mat-label>Исполнитель</mat-label>
+        <input matInput formControlName="worker" />
+      </mat-form-field>
+    </div>
+  </form>
+  <div class="create-task__action">
+    <button class="action" mat-raised-button (click)="goBack()">Назад</button>
+    <button
+      class="action"
+      mat-flat-button
+      color="primary"
+      cdkFocusInitial
+      (click)="addTask(formGroup.value)"
+      [disabled]="formGroup.invalid"
+    >
+      Создать
+    </button>
+  </div>
+</div>
